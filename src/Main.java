@@ -4,10 +4,6 @@
 // Artificial Intelligence
 // Course: CS4523
 //
-//
-//
-//
-//
 
 import java.util.ArrayList;
 import java.util.Collections;
