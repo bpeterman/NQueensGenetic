@@ -3,7 +3,6 @@
 // 10-16-2014
 // Artificial Intelligence
 // Course: CS4523
-// ID: 000181402
 //
 //
 //
