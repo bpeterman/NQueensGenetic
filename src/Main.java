@@ -36,11 +36,11 @@ public class Main {
 		System.out.println("Enter Population Size:");
 		s = in.nextLine();
 		popSize = Integer.parseInt(s);
-		
+
 		System.out.println("Enter Mutate Rate:");
 		s = in.nextLine();
 		mutateRate = Double.parseDouble(s);
-		
+
 		in.close();
 		board = new int[boardSize][boardSize];
 
@@ -65,10 +65,10 @@ public class Main {
 				break;
 			}
 			// remove weakest 50%
-//			int size = population.size();
-//			for (int i = size - 1; i > (size / 2) - 1; i--) {
-//				population.remove(i);
-//			}
+			// int size = population.size();
+			// for (int i = size - 1; i > (size / 2) - 1; i--) {
+			// population.remove(i);
+			// }
 			// perform crossover on upper 50%
 			population = crossOp(population);
 
@@ -78,7 +78,7 @@ public class Main {
 			}
 			// random mutate(pick a random amount of strings to mutate, swap
 			// random indexes)
-			population=mutate(population);
+			population = mutate(population);
 
 			// evaluate(determine fitness of each Chromosome)
 			population = evaluate(getStrings(population));
@@ -90,24 +90,24 @@ public class Main {
 		}
 
 	}
-	
+
 	public static ArrayList<Chromosome> mutate(ArrayList<Chromosome> population) {
 		Random rand = new Random();
-		int iter = (int) (mutateRate*population.size());
+		int iter = (int) (mutateRate * population.size());
 		int n;
-		for (int i=0; i<= iter; i++){
+		for (int i = 0; i <= iter; i++) {
 			n = rand.nextInt(population.size());
 			population.get(n).setSeq(randMutate(population.get(n).getSeq()));
 		}
 
 		return population;
 	}
-	
-	public static String randMutate(String s1){
+
+	public static String randMutate(String s1) {
 		Random rand = new Random();
 		int n1 = rand.nextInt(s1.length());
 		int n2 = rand.nextInt(s1.length());
-		while(n2==n1){
+		while (n2 == n1) {
 			n2 = rand.nextInt(s1.length());
 		}
 		StringBuilder outString = new StringBuilder(s1);
@@ -123,7 +123,7 @@ public class Main {
 		Chromosome c1 = new Chromosome(null, MAX_VALUE);
 		Chromosome c2 = new Chromosome(null, MAX_VALUE);
 		for (int i = 0; i < population.size(); i++) {
-			if (population.size()-2>=(i+1)) {
+			if (population.size() - 2 >= (i + 1)) {
 				temp = crossOver(population.get(i).getSeq(),
 						population.get(i + 1).getSeq(), 4);
 				population.remove(i);
@@ -135,7 +135,7 @@ public class Main {
 				c1 = new Chromosome(null, MAX_VALUE);
 				c2 = new Chromosome(null, MAX_VALUE);
 				i++;
-			} else{
+			} else {
 				break;
 			}
 		}
