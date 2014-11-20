@@ -1,7 +1,7 @@
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Chromosome implements Comparable<Chromosome>{
+public class Chromosome implements Comparable<Chromosome> {
 	String seq;
 	int fitness;
 
@@ -25,17 +25,12 @@ public class Chromosome implements Comparable<Chromosome>{
 	public void setFitness(int fitness) {
 		this.fitness = fitness;
 	}
-	
+
 	@Override
 	public int compareTo(Chromosome comparechroms) {
-        int comparefit=((Chromosome)comparechroms).getFitness();
-        /* For Ascending order*/
-        return this.fitness-comparefit;
-
-        /* For Descending order do like this */
-        //return compareage-this.studentage;
-    }
-
-
+		int comparefit = ((Chromosome) comparechroms).getFitness();
+		/* For Ascending order */
+		return this.fitness - comparefit;
+	}
 
 }
